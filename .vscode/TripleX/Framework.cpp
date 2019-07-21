@@ -1,4 +1,12 @@
 #include <iostream>
+#include <cmath>
+#include <string>
+
+/*******************************************
+ * This document is just to grasp the 
+ * various required or imagined modules for
+ * the program.
+ *******************************************/
 
 using namespace std;
 

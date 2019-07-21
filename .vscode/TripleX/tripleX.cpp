@@ -1,4 +1,6 @@
 #include <iostream>
+// #include <cmath> - decided to remove this for testing purposes.
+// #include <string> - removing this for now, too - KL 
 
 /*********************************
 *  TRIPLE X -                    *
