@@ -1,6 +1,10 @@
 #include <iostream>
+#include <chrono>
+#include <thread>
 // #include <cmath> - decided to remove this for testing purposes.
 // #include <string> - removing this for now, too - KL 
+
+using namespace std::chrono_literals;
 
 /*********************************
 *  TRIPLE X -                    *
@@ -36,8 +40,6 @@ void PrintIntroduction()
 
 bool PlayGame(int Difficulty)
 {
-	PrintIntroduction();
-
 	// Declaration Statments for our variables:
 	const int CodeA{ 4 };
 	const int CodeB{ 2 };
@@ -47,7 +49,9 @@ bool PlayGame(int Difficulty)
 	const int CodeProduct{ CodeA * CodeB * CodeC };
 
 	// Print sum and product to the console:
-	std::cout << "\nThere are three single digit numbers in the code.\n";
+	// std::system("CLS");
+	std::cout << "\n\nLEVEL: " << Difficulty << std::endl;
+	std::cout << "There are three single digit numbers in the code.\n" << std::endl;
 	std::cout << "Sum of the code numbers is: " << CodeSum << std::endl;
 	std::cout << "Product of the code numbers is: " << CodeProduct << std::endl;
 
@@ -68,7 +72,7 @@ bool PlayGame(int Difficulty)
 
 		if (CodeSum == GuessSum && CodeProduct == GuessProduct)
 		{
-			std::system("CLS");
+			std::cout << " -------------------------------\n" << std::endl;
 			std::cout << "Yes! You've broken the Auth code! You can now proceed to the next level!!\n";
 			bWinCondition = true;
 			return true; // Only one win, one level. Change this for multi-level
@@ -77,7 +81,7 @@ bool PlayGame(int Difficulty)
 
 		else
 		{
-			std::system("CLS");
+			std::cout << " -------------------------------\n" << std::endl;
 			std::cout << "\nNope! Not the right numbers!\n";
 			TriesRemaining--;
 		}
@@ -103,6 +107,9 @@ int main()
 {
 	std::system("CLS");
 	PrintTitle();
+	PrintIntroduction();
+	std::this_thread::sleep_for(7s);
+	
 
 	int LevelDifficulty = 1;
 	const int MaxDifficulty = 5;
