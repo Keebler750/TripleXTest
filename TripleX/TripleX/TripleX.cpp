@@ -108,8 +108,9 @@ int main()
 	std::system("CLS");
 	PrintTitle();
 	PrintIntroduction();
-	std::this_thread::sleep_for(7s);
-	
+	std::this_thread::sleep_for(7s);	// Leaves the title and intro on screen, timed.
+	std::system("CLS");
+
 
 	int LevelDifficulty = 1;
 	const int MaxDifficulty = 5;
