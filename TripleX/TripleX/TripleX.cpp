@@ -22,14 +22,12 @@ void PrintTitle()
 	std::cout << "    ###     ##########  ### ##########  ###         ###               @@       \n";
 	std::cout << "    ###     ###    ###  ### ###         ########### ###########     @   @@     \n";
 	std::cout << "    ###     ###     ### ### ###         ########### ###########   @       @@   \n";
-
 }
 
 // Print intro messages to the console:
 void PrintIntroduction()
 {
-	std::cout	<< "\n\n\n";
-	std::cout	<< "You are a DOJ investigator trying to\n"
+	std::cout	<< "\n\n\nYou are a DOJ investigator trying to\n"
 				<< "retrieve hidden information in\n"
 				<< "Hillary Clinton's illegal computer server.\n"
 				<< "\nYou must enter the correct code numbers, in any order.\n"
@@ -38,7 +36,6 @@ void PrintIntroduction()
 
 bool PlayGame(int Difficulty, int RandSize)
 {
-
 	srand(time(NULL));	//initialating the pseudo-rand generizer!!!
 	
 	// Level variables from 1 to RandSize, which is passed in:
@@ -85,13 +82,8 @@ bool PlayGame(int Difficulty, int RandSize)
 		{
 			std::cout << " -------------------------------\n" << std::endl;
 			std::cout << "\nNope! Not the right numbers!\n";
-			
 		}
 	}
-		
-		
-	
-	
 }
 
 int main()
