@@ -3,10 +3,7 @@
 #include <thread>
 #include <ctime>
 
-// #include <cmath> - decided to remove this for testing purposes.
-// #include <string> - removing this for now, too - KL 
-
-using namespace std::chrono_literals;
+using namespace std::chrono_literals;	// this is added to time-pause the title
 
 /*********************************
 *  TRIPLE X -                    *
@@ -14,9 +11,6 @@ using namespace std::chrono_literals;
 *  for GameDev.tv Udemy UE4 C++  *
 *  course.                       *
 *********************************/
-
-// Global vars
-// bool bGameOn;
 
 void PrintTitle()
 {
@@ -27,14 +21,14 @@ void PrintTitle()
 	std::cout << "    ###     ###     ### ### ###     ### ###         ######          @@   @     \n";
 	std::cout << "    ###     ##########  ### ##########  ###         ###               @@       \n";
 	std::cout << "    ###     ###    ###  ### ###         ########### ###########     @   @@     \n";
-	std::cout << "    ###     ###     ### ### ###         ########### ###########   @       @@   \n\n\n\n";
+	std::cout << "    ###     ###     ### ### ###         ########### ###########   @       @@   \n";
 
 }
 
 // Print intro messages to the console:
 void PrintIntroduction()
 {
-
+	std::cout	<< "\n\n\n";
 	std::cout	<< "You are a DOJ investigator trying to\n"
 				<< "retrieve hidden information in\n"
 				<< "Hillary Clinton's illegal computer server.\n"
@@ -44,18 +38,18 @@ void PrintIntroduction()
 
 bool PlayGame(int Difficulty, int RandSize)
 {
-	// Set up our level variables:
 
 	srand(time(NULL));	//initialating the pseudo-rand generizer!!!
 	
-	const int CodeA = rand() % RandSize + 1; // from 1 to RandSize, which is passed in
+	// Level variables from 1 to RandSize, which is passed in:
+	const int CodeA = rand() % RandSize + 1; 
 	const int CodeB = rand() % RandSize + 1;
 	const int CodeC = rand() % RandSize + 1;
 
 	const int CodeSum{ CodeA + CodeB + CodeC };
 	const int CodeProduct{ CodeA * CodeB * CodeC };
 
-	// Print sum and product to the console:
+	// Inform player of sum and product:
 	std::cout << "\nLEVEL: " << Difficulty << std::endl;
 	std::cout << "There are three single digit numbers in the code.\n" << std::endl;
 	std::cout << "Sum of the code numbers is: " << CodeSum << std::endl;
@@ -103,16 +97,16 @@ int main()
 	std::system("CLS");
 	PrintTitle();
 	PrintIntroduction();
-	std::this_thread::sleep_for(8s);	// Leaves the title and intro on screen, timed.
+	std::this_thread::sleep_for(8s);	// title and intro on screen is timed.
 	std::system("CLS");
 
 	int LevelDifficulty = 1;
-	const int MaxDifficulty = 5;
+	const int MaxDifficulty = 6;
 	int RandSize = 4;
 
-	while (LevelDifficulty <= MaxDifficulty)	// Game loop
+	while (LevelDifficulty < MaxDifficulty)	// Game loop
 	{
-		bool NextLevel = PlayGame(LevelDifficulty, RandSize);
+		bool NextLevel = PlayGame(LevelDifficulty, RandSize);	// PlayGame returns true only if player is continuing.
 		std::cin.clear();   // clears any errors; failbits.
 		std::cin.ignore();  // discards the buffer
 
@@ -123,12 +117,12 @@ int main()
 			// bGameOn = true;
 		}
 
-		else if (NextLevel && LevelDifficulty == MaxDifficulty)
+		else if (NextLevel && LevelDifficulty == MaxDifficulty)	// Beat last level AND maxxed the Levels. We're done!
 		{
 			std::system("CLS");
 			std::cout << "\n\n\n\n\n ****** CONGRATULATIONS!!! ******\n\n";
 			std::cout << "You've beaten the system and broken in!!\n\n\n\n\n\n\n";
-			break;
+			// break;	// I don't like this break
 
 		}
 	}
@@ -138,3 +132,8 @@ int main()
 
 	return 0;
 }
+
+
+/* 
+DEBUG the game end conditions and messages with that BREAK on 125. Grr.
+*/
