@@ -129,8 +129,3 @@ int main()
 
 	return 0;
 }
-
-
-/* 
-DEBUG the game end conditions and messages with that BREAK on 125. Grr.
-*/
