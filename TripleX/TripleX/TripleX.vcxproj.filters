@@ -23,9 +23,6 @@
     <ClCompile Include="TripleX.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Storage\.vscode\TripleX\Framework.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="DesignDoc.txt">
