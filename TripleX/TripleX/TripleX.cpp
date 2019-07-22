@@ -139,7 +139,8 @@ int main()
 		}
 	}
 
-
+	std::cout << "Press ENTER to close this window." << std::endl;
+	std::cin.get();
 
 	return 0;
 }
