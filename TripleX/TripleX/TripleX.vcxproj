@@ -156,6 +156,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Storage\.vscode\TripleX\Framework.cpp" />
     <ClCompile Include="TripleX.cpp" />
   </ItemGroup>
   <ItemGroup>
