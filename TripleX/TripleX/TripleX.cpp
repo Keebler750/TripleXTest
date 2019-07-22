@@ -34,14 +34,14 @@ void PrintIntroduction()
 				<< "\nGame is starting now....\n";
 }
 
-bool PlayGame(int Difficulty, int RandSize)
+bool PlayGame(int Difficulty)
 {
 	srand(time(NULL));	//initialating the pseudo-rand generizer!!!
 	
 	// Level variables from 1 to RandSize, which is passed in:
-	const int CodeA = rand() % RandSize + 1; 
-	const int CodeB = rand() % RandSize + 1;
-	const int CodeC = rand() % RandSize + 1;
+	const int CodeA = rand() % (Difficulty + 4) + 1; 
+	const int CodeB = rand() % (Difficulty + 4) + 1;
+	const int CodeC = rand() % (Difficulty + 4) + 1;
 
 	const int CodeSum{ CodeA + CodeB + CodeC };
 	const int CodeProduct{ CodeA * CodeB * CodeC };
@@ -96,18 +96,18 @@ int main()
 
 	int LevelDifficulty = 1;
 	const int MaxDifficulty = 5;
-	int RandSize = 4;
+	// int RandSize = 4;
 
 	while (LevelDifficulty <= MaxDifficulty)	// Game loop
 	{
-		bool NextLevel = PlayGame(LevelDifficulty, RandSize);	// PlayGame returns true only if player is continuing.
+		bool NextLevel = PlayGame(LevelDifficulty);	// RandSize was an Arg. PlayGame returns true only if player is continuing.
 		std::cin.clear();   // clears any errors; failbits.
 		std::cin.ignore();  // discards the buffer
 
 		if (NextLevel && (LevelDifficulty < MaxDifficulty))	// if we come out of PlayGame as a successful level; TRUE
 		{
 			LevelDifficulty++;
-			RandSize++;
+			// RandSize++;
 		}
 
 		else if (NextLevel && (LevelDifficulty == MaxDifficulty))	// Beat last level AND maxxed the Levels. We're done!
