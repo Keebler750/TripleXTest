@@ -105,19 +105,20 @@ int main()
 	PrintTitle();
 
 	int LevelDifficulty = 1;
-	bool bGameOn = true; // "False ends game," said Captain Obvious.
+	const int MaxDifficulty = 5;
+	// bool bGameOn = true; // "False ends game," said Captain Obvious.
 
 
-	while (bGameOn)	// Game loop
+	while (LevelDifficulty <= MaxDifficulty)	// Game loop
 	{
 		bool NextLevel = PlayGame(LevelDifficulty);
 		std::cin.clear();   // clears any errors; failbits.
 		std::cin.ignore();  // discards the buffer
 
-		if (NextLevel)
+		if (NextLevel)	// if we come out of PlayGame as a successful level; TRUE
 		{
 			LevelDifficulty++;
-			bGameOn = true;
+			// bGameOn = true;
 		}
 	}
 
