@@ -67,6 +67,7 @@ bool PlayGame(int Difficulty, int RandSize)
 		std::cout << "\n";
 		int GuessSum = (GuessA + GuessB + GuessC);
 		int GuessProduct = (GuessA * GuessB * GuessC);
+		TriesRemaining--;
 
 		if (CodeSum == GuessSum && CodeProduct == GuessProduct)
 		{
@@ -74,22 +75,23 @@ bool PlayGame(int Difficulty, int RandSize)
 			std::cout << "Yes! You've broken the Auth code! You can now proceed to the next level!!\n";
 			return true; // Tell MAIN to continue the game loop
 		}
+		else if (TriesRemaining == 0)
+		{
+			std::system("CLS");
+			std::cout << "\n\n\nYou can't complete your mission. You've lost the data!!!\n\n\n\n";
+			return false;	// Tell MAIN you're done.
+		}
 		else
 		{
 			std::cout << " -------------------------------\n" << std::endl;
 			std::cout << "\nNope! Not the right numbers!\n";
-			TriesRemaining--;
+			
 		}
 	}
-
-	if (TriesRemaining == 0)
-	{
-		std::system("CLS");
-		std::cout << "You can't complete your mission. You've lost the data!!!\n";
-		return false;
-	}
-
-	return false;
+		
+		
+	
+	
 }
 
 int main()
@@ -101,29 +103,32 @@ int main()
 	std::system("CLS");
 
 	int LevelDifficulty = 1;
-	const int MaxDifficulty = 6;
+	const int MaxDifficulty = 5;
 	int RandSize = 4;
 
-	while (LevelDifficulty < MaxDifficulty)	// Game loop
+	while (LevelDifficulty <= MaxDifficulty)	// Game loop
 	{
 		bool NextLevel = PlayGame(LevelDifficulty, RandSize);	// PlayGame returns true only if player is continuing.
 		std::cin.clear();   // clears any errors; failbits.
 		std::cin.ignore();  // discards the buffer
 
-		if (NextLevel && LevelDifficulty < MaxDifficulty)	// if we come out of PlayGame as a successful level; TRUE
+		if (NextLevel && (LevelDifficulty < MaxDifficulty))	// if we come out of PlayGame as a successful level; TRUE
 		{
 			LevelDifficulty++;
 			RandSize++;
-			// bGameOn = true;
 		}
 
-		else if (NextLevel && LevelDifficulty == MaxDifficulty)	// Beat last level AND maxxed the Levels. We're done!
+		else if (NextLevel && (LevelDifficulty == MaxDifficulty))	// Beat last level AND maxxed the Levels. We're done!
 		{
 			std::system("CLS");
 			std::cout << "\n\n\n\n\n ****** CONGRATULATIONS!!! ******\n\n";
 			std::cout << "You've beaten the system and broken in!!\n\n\n\n\n\n\n";
 			// break;	// I don't like this break
 
+		}
+		else
+		{
+			break;
 		}
 	}
 
