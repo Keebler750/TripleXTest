@@ -1,0 +1,45 @@
+
+Lay out the required game structure here
+
+Outline:
+1. What is the basic design goal?
+2. Concept, Win Conditions, Rules etc
+3. How modular should it be, and what modules?
+4. What variables and constructs will be needed?
+5. Error proofing ideas - what can go wrong?
+6. Other notes
+
+
+Section 1 - Design Goals
+a) Quick and easy playable console guessing game for Windows
+b) Clear instructions, easy for all players to understand what's expected
+c) Design obvious progression into difficulty to reward with do-able challenges
+
+Section 2 - Concepts
+a) Lay out a theme or storyline to make it fun
+b) Game will have FIVE levels of increasing difficulty via amount of numbers and guesses
+c) Generate some code numbers that the player must guess
+d) Get player input and compare to the generated codes
+e) If guesses are successful, player moves to next level
+f) Player goes as far as possible to maximum of top level, which is a WIN.
+
+We won't do this:
+- Track score with 'Least Guesses High Score' etc scoreboard
+
+Section 3 - Structure and Modularity
+a) Menu, Levels, Code Generator, Messaging, Player Input, Comparison
+b) Functions, perhaps reference variables or storage of values for use 
+
+Section 4 - List of required code Objects
+a) Codes, Guesses, Level, Comparison criterion, Error Proofing, GameState
+b) Tries Remaining, Difficulty, 
+
+
+Section 5 - Error proofing
+a) Minimize ability of Player to enter wrong input
+b) Avoid GameState confusion
+c) ...other...
+
+Section 6 - Other Notes
+a) Pay attention to efficient logic structures when you find good examples
+
