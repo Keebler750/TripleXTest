@@ -123,10 +123,19 @@ int main()
 		std::cin.clear();   // clears any errors; failbits.
 		std::cin.ignore();  // discards the buffer
 
-		if (NextLevel)	// if we come out of PlayGame as a successful level; TRUE
+		if (NextLevel && LevelDifficulty < MaxDifficulty)	// if we come out of PlayGame as a successful level; TRUE
 		{
 			LevelDifficulty++;
 			// bGameOn = true;
+		}
+
+		else if (NextLevel && LevelDifficulty == MaxDifficulty)
+		{
+			std::system("CLS");
+			std::cout << "\n\n\n\n\nCONGRATULATIONS!!!\n\n";
+			std::cout << "You've beaten the system and broken in!!\n\n\n";
+			break;
+
 		}
 	}
 
