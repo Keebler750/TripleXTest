@@ -1,0 +1,7 @@
+Trying to understand what logic loops and conditions I'm tracking or want to track due to bug with game end (GITissue#2)
+
+I have;
+1) LevelDifficulty (max 5)
+2) RemainingGuesses (max 3)
+3) Compare generated numbers to guesses ()
+4) 

@@ -47,10 +47,10 @@ bool PlayGame(int Difficulty)
 	const int CodeProduct{ CodeA * CodeB * CodeC };
 
 	// Inform player of sum and product:
-	std::cout << "\nLEVEL: " << Difficulty << std::endl;
-	std::cout << "There are three single digit numbers in the code.\n" << std::endl;
-	std::cout << "Sum of the code numbers is: " << CodeSum << std::endl;
-	std::cout << "Product of the code numbers is: " << CodeProduct << std::endl;
+	std::cout << "\nLEVEL: " << Difficulty;
+	std::cout << "\nThere are three single digit numbers in the code.\n\n";
+	std::cout << "\nSum of the code numbers is: " << CodeSum;
+	std::cout << "\nProduct of the code numbers is: " << CodeProduct;
 
 	int GuessA, GuessB, GuessC;
 	int RemainingGuesses{ 3 };
@@ -58,7 +58,7 @@ bool PlayGame(int Difficulty)
 	// Do guesses and test for correct
 	while (RemainingGuesses > 0)
 	{
-		std::cout << "\nFor level " << Difficulty << " you have " << RemainingGuesses << " guesses remaining." << std::endl;
+		std::cout << "\n\nFor level " << Difficulty << " you have " << RemainingGuesses << " guesses remaining.\n";
 		std::cout << "Guess your single digit numbers, separated with spaces: ";
 		std::cin >> GuessA >> GuessB >> GuessC;
 		std::cout << "\n";
@@ -68,7 +68,7 @@ bool PlayGame(int Difficulty)
 
 		if (CodeSum == GuessSum && CodeProduct == GuessProduct) // if the guesses and codes are the same:
 		{
-			std::cout << " -------------------------------\n" << std::endl;
+			std::cout << " -------------------------------\n\n";
 			std::cout << "Yes! You've broken the Auth code! You can now proceed to the next level!!\n";
 			return true; // Tell MAIN to continue the game loop
 		}
@@ -80,7 +80,7 @@ bool PlayGame(int Difficulty)
 		}
 		else
 		{
-			std::cout << " -------------------------------\n" << std::endl;
+			std::cout << " -------------------------------\n\n";
 			std::cout << "\nNope! Not the right numbers!\n";
 		}
 	}
@@ -113,6 +113,8 @@ int main()
 			std::system("CLS");
 			std::cout << "\n\n\n\n\n ****** CONGRATULATIONS!!! ******\n\n";
 			std::cout << "You've beaten the system and broken in!!\n\n\n\n\n\n\n";
+			// std::cin.get();
+			// break;
 		}
 		else
 		{
@@ -120,7 +122,7 @@ int main()
 		}
 	}
 
-	std::cout << "Press ENTER to close this window." << std::endl;
+	std::cout << "Press ENTER to close this window.\n\n";
 	std::cin.get();
 
 	return 0;
