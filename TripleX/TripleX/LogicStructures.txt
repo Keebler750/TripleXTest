@@ -5,3 +5,11 @@ I have;
 2) RemainingGuesses (max 3)
 3) Compare generated numbers to guesses ()
 4) 
+
+
+Various expected game conditions:
+A) Correct guess - go to next level.
+B) Incorrect guess - try again.
+C) Run out of guesses - you lose, sorry.
+D) Next level - reset guesses and codes. Try to guess.
+E) Run out of levels - You won, game over.
