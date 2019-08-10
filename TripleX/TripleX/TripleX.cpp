@@ -53,18 +53,18 @@ bool PlayGame(int Difficulty)
 	std::cout << "\nProduct of the code numbers is: " << CodeProduct;
 
 	int GuessA, GuessB, GuessC;
-	int RemainingGuesses{ 3 };
+	int GuessesRemaining{ 3 };
 
 	// Do guesses and test for correct
-	while (RemainingGuesses > 0)
+	while (GuessesRemaining > 0)
 	{
-		std::cout << "\n\nFor level " << Difficulty << " you have " << RemainingGuesses << " guesses remaining.\n";
+		std::cout << "\n\nFor level " << Difficulty << " you have " << GuessesRemaining << " guesses remaining.\n";
 		std::cout << "Guess your single digit numbers, separated with spaces: ";
 		std::cin >> GuessA >> GuessB >> GuessC;
 		std::cout << "\n";
 		int GuessSum = (GuessA + GuessB + GuessC);
 		int GuessProduct = (GuessA * GuessB * GuessC);
-		RemainingGuesses--;
+		GuessesRemaining--;
 
 		if (CodeSum == GuessSum && CodeProduct == GuessProduct) // if the guesses and codes are the same:
 		{
@@ -72,7 +72,7 @@ bool PlayGame(int Difficulty)
 			std::cout << "Yes! You've broken the Auth code! You can now proceed to the next level!!\n";
 			return true; // Tell MAIN to continue the game loop
 		}
-		else if (RemainingGuesses == 0) // if player ran out of guesses:
+		else if (GuessesRemaining == 0) // if player ran out of guesses:
 		{
 			std::system("CLS");
 			std::cout << "\n\n\nYou can't complete your mission. You've lost the data!!!\n\n\n\n";
@@ -99,16 +99,16 @@ int main()
 
 	while (LevelDifficulty <= MaxDifficulty)	// Game loop
 	{
-		bool NextLevel = PlayGame(LevelDifficulty);	// PlayGame returns true only if player is continuing.
+		bool bLevelComplete = PlayGame(LevelDifficulty);	// PlayGame returns true only if player is continuing.
 		std::cin.clear();   // clears any errors; failbits.
 		std::cin.ignore();  // discards the buffer
 
-		if (NextLevel && (LevelDifficulty < MaxDifficulty))	// if we come out of PlayGame as a successful level; TRUE
+		if (bLevelComplete && (LevelDifficulty < MaxDifficulty))	// if we come out of PlayGame as a successful level; TRUE
 		{
 			LevelDifficulty++;
 		}
 
-		else if (NextLevel && (LevelDifficulty == MaxDifficulty))	// Beat last level AND maxxed the Levels. We're done!
+		else if (bLevelComplete && (LevelDifficulty == MaxDifficulty))	// Beat last level AND maxxed the Levels. We're done!
 		{
 			std::system("CLS");
 			std::cout << "\n\n\n\n\n ****** CONGRATULATIONS!!! ******\n\n";
