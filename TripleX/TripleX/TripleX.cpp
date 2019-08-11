@@ -2,7 +2,7 @@
 #include <chrono>
 #include <thread>
 #include <ctime>
-#include <windows.h>
+#include <windows.h> // to change windows console colors, etc.
 
 using namespace std::chrono_literals;	// functionality added to time-pause screen info.
 
