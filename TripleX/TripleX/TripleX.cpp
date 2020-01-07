@@ -65,7 +65,7 @@ void WinGenerator()
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, 2);
 
-	char caRow[80];
+	char caRow[80] = { 0 };
 	int j = 7;
 	int k = 2;
 	int l = 5;
